@@ -57,7 +57,7 @@ Certifique-se de ter os seguintes softwares instalados:
 
 ### 2. Clone o Repositório
 ```bash
-git clone [https://github.com/Lucas-rosario-lrs/neuropreditium.git](https://github.com/Lucas-rosario-lrs/neuropreditium.git)
+git clone <https://github.com/Lucas-rosario-lrs/neuropreditium.git>
 cd neuropreditium
 ```
 
