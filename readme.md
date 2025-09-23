@@ -80,7 +80,7 @@ Você precisará de, no mínimo, 3 terminais abertos. Navegue até a pasta `back
 
 Terminal 1 (Banco de Dados):
 
-# Inicie o serviço do MongoDB. Se não iniciar automaticamente, use o comando manual:
+Inicie o serviço do MongoDB. Se não iniciar automaticamente, use o comando manual:
 ```bash
 "C:\Program Files\MongoDB\Server\8.0\bin\mongod.exe"
 ```
