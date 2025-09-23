@@ -10,7 +10,7 @@ float gyro_z_offset = 0;
 
 const float TREMOR_THRESHOLD = 0.8;
 const int UPDATE_INTERVAL = 1000;
-
+// aleatorio
 unsigned long last_update_time = 0;
 int peak_count = 0;
 float hertz = 0;
