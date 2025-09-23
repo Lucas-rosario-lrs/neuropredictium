@@ -1,7 +1,7 @@
 # Neuropreditium: Plataforma de Diagnóstico Auxiliar via IoT
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=yellow)
-![Flask](https://img.shields.io/badge/Flask-2.3-blue?logo=flask?)
+![Flask](https://img.shields.io/badge/Flask-2.3-blue?logo=flask)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4.4+-green?logo=mongodb)
 ![Arduino](https://img.shields.io/badge/Arduino-C++-00979D?logo=arduino)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
