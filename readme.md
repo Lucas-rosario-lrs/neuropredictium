@@ -1,4 +1,4 @@
-# Neuropreditium: Plataforma de Diagnóstico Auxiliar via IoT
+# Neuropredictium: Plataforma de Diagnóstico Auxiliar via IoT
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=yellow)
 ![Flask](https://img.shields.io/badge/Flask-2.3-blue?logo=flask)
@@ -8,7 +8,7 @@
 
 ## 📖 Sobre o Projeto
 
-**Neuropreditium** é uma plataforma de prova de conceito (PoC) desenvolvida para coletar e analisar dados biométricos em tempo real, utilizando hardware de baixo custo (Arduino e sensores) para auxiliar na detecção precoce de possíveis indicadores de doenças neurodegenerativas.
+**Neuropredictium** é uma plataforma de prova de conceito (PoC) desenvolvida para coletar e analisar dados biométricos em tempo real, utilizando hardware de baixo custo (Arduino e sensores) para auxiliar na detecção precoce de possíveis indicadores de doenças neurodegenerativas.
 
 O sistema possui duas frentes de análise principais:
 1.  **Análise de Tremor:** Utiliza um acelerômetro/giroscópio (MPU-6050) para medir a frequência de tremores em Hertz. Esses dados são então processados por um modelo de Machine Learning (Random Forest) para classificar o tremor.
@@ -57,8 +57,8 @@ Certifique-se de ter os seguintes softwares instalados:
 
 ### 2. Clone o Repositório
 ```bash
-git clone <https://github.com/Lucas-rosario-lrs/neuropreditium.git>
-cd neuropreditium
+git clone <https://github.com/Lucas-rosario-lrs/neuropredictium.git>
+cd neuropredictium
 ```
 
 ### 3. Config de ambiente
