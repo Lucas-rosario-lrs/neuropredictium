@@ -8,7 +8,6 @@ import numpy as np
 import os
 
 # --- Configuração Inicial ---
-# << MUDANÇA: O caminho para o frontend agora precisa "subir" dois níveis (de server/ para backend/, e de backend/ para root/) >>
 app = Flask(__name__, template_folder='../../frontend', static_folder='../../frontend')
 CORS(app)
 

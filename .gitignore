@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# Arquivos de Sistema
+.DS_Store
+Thumbs.db

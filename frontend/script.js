@@ -1,3 +1,4 @@
+
 const API_URL = 'http://localhost:5000';
 
 // Função para atualizar o painel de Tremor
