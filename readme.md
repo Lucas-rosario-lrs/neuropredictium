@@ -1,7 +1,7 @@
 # Neuropreditium: Plataforma de Diagnóstico Auxiliar via IoT
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=yellow)
-![Flask](https://img.shields.io/badge/Flask-2.3-black?logo=flask)
+![Flask](https://img.shields.io/badge/Flask-black?logo=flask)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4.4+-green?logo=mongodb)
 ![Arduino](https://img.shields.io/badge/Arduino-C++-00979D?logo=arduino)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
@@ -59,49 +59,61 @@ Certifique-se de ter os seguintes softwares instalados:
 ```bash
 git clone [https://github.com/Lucas-rosario-lrs/neuropreditium.git](https://github.com/Lucas-rosario-lrs/neuropreditium.git)
 cd neuropreditium
+```
 
 ### 3. Config de ambiente
 ```bash
 pip install -r requirements.txt
+```
 
 
 ### 4. Carregar no Arduíno
 
 Carregue arduino/tremor.ino no Arduino de tremor.
-
 Carregue arduino/sensordecor.ino no Arduino de saliva.
+Anote as portas COM de cada um. E configure as portas serial em `backend\ponte_serial`.
 
-Anote as portas COM de cada um. E configure as portas serial em `backend\ponte_serial`
 
 ### 5. Executando o Sistema
 
-Você precisará de, no mínimo, 3 terminais abertos.
-
+Você precisará de, no mínimo, 3 terminais abertos. Navegue até a pasta `backend`.
 
 Terminal 1 (Banco de Dados):
 
 # Inicie o serviço do MongoDB. Se não iniciar automaticamente, use o comando manual:
 ```bash
 "C:\Program Files\MongoDB\Server\8.0\bin\mongod.exe"
+```
 
 
 Terminal 2 (Servidor Backend):
 ```bash
 cd backend/server
 python server.py
+```
 
 
 Terminal 3 (Ponte de Dados):
 ```bash
 # Conecte o Arduino que você quer testar
 cd backend
-
 # Para testar o tremor:
 python ponte_tremor.py
-
 # Ou para testar a saliva (em outro momento):
 python ponte_saliva.py
+```
 
 
+### 6. Acesse o Frontend
+Abra seu navegador de internet e acesse o endereço:
+http://localhost:5000
+
+O dashboard deverá carregar e começar a se atualizar em tempo real assim que os dados do Arduino conectado começarem a chegar.
+
+### 👨‍💻 Autor
+Lucas Rosario - Desenvolvedor Principal - Lucas-rosario-lrs
+
+### 📄 Licença
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
 
