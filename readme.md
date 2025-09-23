@@ -4,7 +4,7 @@
 ![Flask](https://img.shields.io/badge/Flask-2.3-blue?logo=flask)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4.4+-green?logo=mongodb)
 ![Arduino](https://img.shields.io/badge/Arduino-C++-00979D?logo=arduino)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Status](https://img.shields.io/badge/Status-em%20desenvolvimento-yellow)
 
 ## 📖 Sobre o Projeto
 
@@ -104,16 +104,16 @@ python ponte_saliva.py
 ```
 
 
-### 6. Acesse o Frontend
+## 6. Acesse o Frontend
 Abra seu navegador de internet e acesse o endereço:
 http://localhost:5000
 
 O dashboard deverá carregar e começar a se atualizar em tempo real assim que os dados do Arduino conectado começarem a chegar.
 
-### 👨‍💻 Autor
+## 👨‍💻 Autor
 Lucas Rosario - Desenvolvedor Principal - Lucas-rosario-lrs
 
-### 📄 Licença
+## 📄 Licença
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
 
