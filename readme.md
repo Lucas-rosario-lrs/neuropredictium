@@ -103,8 +103,7 @@ python ponte_tremor.py
 python ponte_saliva.py
 ```
 
-
-## 6. Acesse o Frontend
+## 💻 Acesse o Frontend
 Abra seu navegador de internet e acesse o endereço:
 http://localhost:5000
 

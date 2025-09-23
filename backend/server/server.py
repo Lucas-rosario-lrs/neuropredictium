@@ -38,7 +38,6 @@ except Exception as e:
 # ==========================================================
 # --- ROTAS DA API ---
 # ==========================================================
-
 @app.route('/')
 def home():
     return render_template('index.html')
