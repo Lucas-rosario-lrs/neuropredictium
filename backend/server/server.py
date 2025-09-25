@@ -1,43 +1,34 @@
-# Localizado em: backend/server/server.py
+# Arquivo 2: server.py (Versão Final)
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from pymongo import MongoClient
 from datetime import datetime
-import joblib
+import pickle
 import numpy as np
 import os
 
-# --- Configuração Inicial ---
 app = Flask(__name__, template_folder='../../frontend', static_folder='../../frontend')
 CORS(app)
 
-# --- Conexão com o MongoDB ---
 client = MongoClient('mongodb://localhost:27017/')
 db = client['diagnostico_db']
 collection_tremor = db['leituras_tremor']
 collection_saliva = db['analises_saliva']
 
-# --- Carregando o Modelo de Machine Learning ---
 modelo_tremor = None
 try:
-    # 1. Pega o diretório do script atual (a pasta 'server')
     script_dir = os.path.dirname(os.path.abspath(__file__))
     backend_dir = os.path.dirname(script_dir)
-    # 3. Constrói o caminho para o modelo a partir da pasta 'backend'
-    caminho_do_modelo = os.path.join(backend_dir, 'ml_IA', 'modelo_rf.pkl')
+    # --- MUDANÇA CRÍTICA: Carregando o modelo da pipeline ---
+    caminho_do_modelo = os.path.join(backend_dir, 'ml_IA', 'modelo_pipeline.pkl')
     
     print(f"[Servidor] Procurando modelo em: {caminho_do_modelo}")
-
     with open(caminho_do_modelo, 'rb') as f:
-        modelo_tremor = joblib.load(f)
-    print("[Servidor] Modelo de predição (modelo_rf.pkl) carregado com sucesso.")
-
+        modelo_tremor = pickle.load(f)
+    print("[Servidor] Modelo de predição (modelo_pipeline.pkl) carregado com sucesso.")
 except Exception as e:
     print(f"[Servidor] ERRO ao carregar modelo: {e}")
 
-# ==========================================================
-# --- ROTAS DA API ---
-# ==========================================================
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -61,7 +52,6 @@ def receber_dados_tremor():
         return jsonify({'erro': 'Dado "frequencia" ausente ou inválido'}), 400
 
     print(f"[Servidor] Leitura de TREMOR recebida: {frequencia} Hz")
-
     diagnostico, confianca = "Modelo não disponível", "0.00%"
     if modelo_tremor:
         dados_para_predicao = np.array([[frequencia]])
