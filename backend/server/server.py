@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from pymongo import MongoClient
 from datetime import datetime
-import pickle
+import joblib
 import numpy as np
 import os
 
@@ -29,7 +29,7 @@ try:
     print(f"[Servidor] Procurando modelo em: {caminho_do_modelo}")
 
     with open(caminho_do_modelo, 'rb') as f:
-        modelo_tremor = pickle.load(f)
+        modelo_tremor = joblib.load(f)
     print("[Servidor] Modelo de predição (modelo_rf.pkl) carregado com sucesso.")
 
 except Exception as e:
