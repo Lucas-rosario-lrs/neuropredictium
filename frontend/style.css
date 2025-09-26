@@ -1,23 +1,28 @@
-/* --- VARIAVEIS DE COR --- */
-/* Mude as cores aqui para alterar o tema do site inteiro facilmente */
+/* =================================================================
+   Arquivo: frontend/style.css
+   Estilo para o Dashboard de Diagnóstico Neuropredictium
+   ================================================================= */
+
+/* --- VARIÁVEIS DE COR (Tema Principal) --- */
 :root {
-    --cor-primaria: #1877f2;
-    --cor-fundo: #f0f2f5;
+    --cor-primaria: #0d6efd;
+    --cor-fundo: #f8f9fa;
     --cor-card: #ffffff;
-    --cor-texto-principal: #1c1e21;
-    --cor-texto-secundario: #606770;
-    --cor-borda: #dddfe2;
-    --cor-status-positivo: #5cb85c;
-    --cor-status-negativo: #d9534f;
+    --cor-texto-principal: #212529;
+    --cor-texto-secundario: #6c757d;
+    --cor-borda: #dee2e6;
+    --cor-sombra: rgba(0, 0, 0, 0.075);
+    --cor-status-positivo: #198754;
+    --cor-status-negativo: #dc3545;
 }
 
 /* --- ESTILOS GERAIS --- */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--cor-fundo);
     color: var(--cor-texto-principal);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* --- CABEÇALHO E LOGO --- */
@@ -25,30 +30,32 @@ header {
     background-color: var(--cor-card);
     padding: 15px 30px;
     border-bottom: 1px solid var(--cor-borda);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    
-    /* Usando Flexbox para alinhar a logo e o título */
+    box-shadow: 0 2px 4px var(--cor-sombra);
     display: flex;
-    align-items: center; /* Alinha verticalmente */
-    gap: 15px; /* Espaço entre a logo e o título */
+    align-items: center;
+    gap: 20px;
 }
 
 #logo {
-    height: 50px; /* Altura da sua logo */
-    width: auto;  /* Largura automática para manter a proporção */
+    height: 70px;
+    width: auto;
 }
 
 header h1 {
-    font-size: 1.8em;
-    color: var(--cor-primaria);
-    margin: 0; /* Remove a margem padrão do h1 */
-    align-items: center;
+    font-size: 1.75em;
+    color: var(--cor-texto-principal);
+    margin: 0;
+    font-weight: 600;
 }
 
-/* --- CONTEÚDO PRINCIPAL --- */
+/* =================================================================
+   --- MUDANÇA PRINCIPAL: LAYOUT DOS CARDS ---
+   ================================================================= */
 main {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    align-items: flex-start; 
     justify-content: center;
     gap: 25px;
     padding: 25px;
@@ -56,68 +63,91 @@ main {
 
 .card {
     background: var(--cor-card);
-    padding: 20px 25px;
-    border-radius: 8px;
+    padding: 25px 30px;
+    border-radius: 12px;
     border: 1px solid var(--cor-borda);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    flex: 1;
-    min-width: 450px;
-    max-width: 600px;
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px var(--cor-sombra);
+    box-sizing: border-box;
+    flex-basis: 400px; 
+    flex-grow: 1;
 }
+/* ================================================================= */
 
-.card:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
 
 .card h2 {
     border-bottom: 2px solid var(--cor-primaria);
     padding-bottom: 10px;
     margin-top: 0;
+    margin-bottom: 20px;
     color: var(--cor-primaria);
+    font-size: 1.4em;
 }
 
-/* --- ESTILOS DOS DISPLAYS DE DIAGNÓSTICO --- */
-.diagnostico-display, .saliva-display {
-    text-align: center;
-    margin: 25px 0;
-    padding: 20px;
-    border-radius: 6px;
-    background-color: var(--cor-fundo);
-}
-
-#diagnostico-texto {
-    font-size: 2.2em;
-    font-weight: bold;
-    margin: 0;
-}
-
-#diagnostico-confianca {
+.card h3 {
     font-size: 1.1em;
     color: var(--cor-texto-secundario);
-    margin-top: 5px;
+    margin-top: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
 }
 
-.saliva-display {
+/* --- CARD DE ANÁLISE INTEGRADA --- */
+#analise-integrada-card p {
+    color: var(--cor-texto-secundario);
+    font-size: 0.9em;
+}
+
+.analise-trigger {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 20px;
+    margin: 20px 0;
 }
 
-#cor-detectada {
-    font-size: 1.8em;
+#btn-analise {
+    background-color: var(--cor-primaria);
+    color: white;
+    font-size: 1em;
     font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-#cor-swatch {
-    width: 45px;
-    height: 45px;
-    border: 2px solid var(--cor-borda);
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+#btn-analise:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-1px);
 }
+
+#btn-analise:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    transform: translateY(0);
+}
+
+#analise-status {
+    color: var(--cor-texto-secundario);
+    font-style: italic;
+}
+
+/* --- DISPLAYS DE DIAGNÓSTICO E COR --- */
+.diagnostico-display, .saliva-display {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid var(--cor-borda);
+}
+
+#diagnostico-final-texto { font-size: 2em; font-weight: bold; margin: 0; }
+#diagnostico-final-confianca { font-size: 1.1em; color: var(--cor-texto-secundario); margin-top: 5px; }
+
+.saliva-display { display: flex; align-items: center; justify-content: center; gap: 20px; }
+#cor-detectada { font-size: 1.5em; font-weight: 600; }
+#cor-swatch { width: 40px; height: 40px; border: 1px solid var(--cor-borda); border-radius: 50%; }
 
 .status-normal { color: var(--cor-status-positivo); }
 .status-anormal { color: var(--cor-status-negativo); }
@@ -126,34 +156,28 @@ main {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 15px;
 }
-
 th, td {
-    padding: 12px;
+    padding: 10px 15px;
     text-align: left;
     border-bottom: 1px solid var(--cor-borda);
 }
-
 th {
-    background-color: #f5f6f7;
-    font-weight: 600;
-    color: var(--cor-texto-secundario);
+    background-color: #f8f9fa;
 }
 
-/* --- LAYOUT RESPONSIVO PARA CELULARES --- */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-    
+/* =================================================================
+   --- MUDANÇA PARA TELAS RESPONSIVIDADE ---
+   ================================================================= */
+@media (max-width: 1300px) { /* << PONTO DE QUEBRA AJUSTADO */
     main {
-        padding: 15px;
+        flex-direction: column; 
+        align-items: center;
     }
 
     .card {
-        min-width: 100%;
+        width: 100%;
+        max-width: 800px;
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Diagnóstico</title>
+    <title>Dashboard de Diagnóstico Neuropreditium</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -12,26 +12,33 @@
         <h1>Dashboard de Diagnóstico</h1>
     </header>
     <main>
-        <div class="card" id="tremor-card">
-            <h2>Análise de Tremor</h2>
-            <div class="diagnostico-display">
-                <div id="diagnostico-texto">Aguardando dados...</div>
-                <div id="diagnostico-confianca">--% de Confiança</div>
+        <div class="card" id="analise-integrada-card">
+            <h2>Análise Preditiva Completa</h2>
+            <p>Clique no botão para executar o modelo de IA usando os dados mais recentes de tremor e saliva.</p>
+            <div class="analise-trigger">
+                <button id="btn-analise">Executar Análise Completa</button>
+                <div id="analise-status"></div>
             </div>
-            <h3>Últimas Leituras</h3>
+            <div class="diagnostico-display">
+                <div id="diagnostico-final-texto">Aguardando análise...</div>
+                <div id="diagnostico-final-confianca">--% de Confiança</div>
+            </div>
+        </div>
+
+        <div class="card" id="tremor-card">
+            <h2>Monitoramento de Tremor (em tempo real)</h2>
             <table>
-                <thead><tr><th>Horário</th><th>Frequência (Hz)</th><th>Diagnóstico</th></tr></thead>
+                <thead><tr><th>Horário</th><th>Frequência (Hz)</th></tr></thead>
                 <tbody id="dados-tremor"></tbody>
             </table>
         </div>
 
         <div class="card" id="saliva-card">
-            <h2>Análise de Amostra de Saliva</h2>
+            <h2>Monitoramento de Saliva (em tempo real)</h2>
             <div class="saliva-display">
                 <div id="cor-detectada">Cor: Indefinido</div>
                 <div id="cor-swatch"></div>
             </div>
-            <h3>Últimas Análises</h3>
             <table>
                 <thead><tr><th>Horário</th><th>Cor Detectada</th><th>R, G, B</th><th>Lux</th></tr></thead>
                 <tbody id="dados-saliva"></tbody>
