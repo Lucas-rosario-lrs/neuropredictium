@@ -1,7 +1,7 @@
 # Arquivo 4: ponte_saliva.py (Corrigido)
 import serial, requests, json, time
 
-PORTA_SERIAL = 'COM4'  # <-- ATUALIZE AQUI!
+PORTA_SERIAL = 'COM6'  # <-- ATUALIZE AQUI!
 VELOCIDADE_SERIAL = 9600
 # --- MUDANÇA CRÍTICA: A porta agora é 5000 ---
 URL_SERVIDOR = 'http://localhost:5000/api/saliva'
