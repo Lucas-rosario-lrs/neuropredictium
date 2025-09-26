@@ -82,7 +82,7 @@ Terminal 1 (Banco de Dados):
 
 Inicie o serviço do MongoDB. Se não iniciar automaticamente, use o comando manual:
 ```bash
-C:\Program Files\MongoDB\Server\8.0\bin\mongod.exe
+"C:\Program Files\MongoDB\Server\8.0\bin\mongod.exe"
 ```
 
 
