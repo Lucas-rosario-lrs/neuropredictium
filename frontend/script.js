@@ -42,6 +42,8 @@ async function atualizarDadosTremor() {
 }
 
 // Função para atualizar o painel de Saliva
+// Localizado em: frontend/script.js
+
 async function atualizarDadosSaliva() {
     try {
         const response = await fetch(`${API_URL}/api/saliva_data`);
@@ -55,26 +57,45 @@ async function atualizarDadosSaliva() {
             return;
         }
 
-        // Atualiza o display principal com o dado mais recente
         const maisRecente = dados[0];
         document.getElementById('cor-detectada').textContent = `Cor: ${maisRecente.analysisResult}`;
         const swatch = document.getElementById('cor-swatch');
-        // Normaliza os valores de R,G,B para o CSS (que usa 0-255)
-        const r = Math.min(255, maisRecente.readings.r / 20); // Ajuste o divisor conforme a sensibilidade
-        const g = Math.min(255, maisRecente.readings.g / 20);
-        const b = Math.min(255, maisRecente.readings.b / 20);
-        swatch.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        
+        // =================================================================
+        // --- BLOCO DE DEBUG ---
+        // =================================================================
+        const raw_r = maisRecente.readings.r;
+        const raw_g = maisRecente.readings.g;
+        const raw_b = maisRecente.readings.b;
 
-        // Preenche a tabela com o histórico
+        // Imprime os valores brutos que vieram do sensor
+        console.log("Valores Brutos do Sensor (R,G,B):", raw_r, raw_g, raw_b);
+
+        //Foi ajustado o divisor.
+        const divisor = 25; 
+        
+        // Calcula os valores para o CSS
+        const r_css = Math.round(Math.min(255, raw_r / divisor));
+        const g_css = Math.round(Math.min(255, raw_g / divisor));
+        const b_css = Math.round(Math.min(255, raw_b / divisor));
+
+        // Imprime os valores que serão usados para colorir a bolinha
+        console.log("Valores Calculados para o CSS (R,G,B):", r_css, g_css, b_css);
+        // =================================================================
+
+        swatch.style.backgroundColor = `rgb(${r_css}, ${g_css}, ${b_css})`;
+
+        // Preenche a tabela com o histórico (código sem alteração)
         dados.forEach(analise => {
-            const r = analise.readings.r;
-            const g = analise.readings.g;
-            const b = analise.readings.b;
+            // ... (o resto da função continua igual)
+            const r_val = analise.readings.r;
+            const g_val = analise.readings.g;
+            const b_val = analise.readings.b;
             const linha = `
                 <tr>
                     <td>${new Date(analise.timestamp).toLocaleTimeString()}</td>
                     <td>${analise.analysisResult}</td>
-                    <td>${r}, ${g}, ${b}</td>
+                    <td>${r_val}, ${g_val}, ${b_val}</td>
                     <td>${analise.readings.lux}</td>
                 </tr>
             `;
