@@ -1,80 +1,159 @@
+/* --- VARIAVEIS DE COR --- */
+/* Mude as cores aqui para alterar o tema do site inteiro facilmente */
+:root {
+    --cor-primaria: #1877f2;
+    --cor-fundo: #f0f2f5;
+    --cor-card: #ffffff;
+    --cor-texto-principal: #1c1e21;
+    --cor-texto-secundario: #606770;
+    --cor-borda: #dddfe2;
+    --cor-status-positivo: #5cb85c;
+    --cor-status-negativo: #d9534f;
+}
+
+/* --- ESTILOS GERAIS --- */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #f0f2f5;
-    color: #1c1e21;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
     margin: 0;
+    line-height: 1.5;
 }
+
+/* --- CABEÇALHO E LOGO --- */
 header {
-    background-color: #ffffff;
-    padding: 20px;
-    border-bottom: 1px solid #dddfe2;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--cor-card);
+    padding: 15px 30px;
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    
+    /* Usando Flexbox para alinhar a logo e o título */
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    gap: 15px; /* Espaço entre a logo e o título */
 }
+
+#logo {
+    height: 50px; /* Altura da sua logo */
+    width: auto;  /* Largura automática para manter a proporção */
+}
+
+header h1 {
+    font-size: 1.8em;
+    color: var(--cor-primaria);
+    margin: 0; /* Remove a margem padrão do h1 */
+    align-items: center;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
 main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    gap: 25px;
+    padding: 25px;
 }
+
 .card {
-    background: #fff;
-    padding: 20px;
+    background: var(--cor-card);
+    padding: 20px 25px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
     flex: 1;
-    min-width: 400px;
+    min-width: 450px;
     max-width: 600px;
+    transition: box-shadow 0.3s ease;
 }
-h2 {
-    border-bottom: 2px solid #1877f2;
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    border-bottom: 2px solid var(--cor-primaria);
     padding-bottom: 10px;
-    color: #1877f2;
+    margin-top: 0;
+    color: var(--cor-primaria);
 }
+
+/* --- ESTILOS DOS DISPLAYS DE DIAGNÓSTICO --- */
 .diagnostico-display, .saliva-display {
     text-align: center;
-    margin: 20px 0;
-    padding: 15px;
+    margin: 25px 0;
+    padding: 20px;
     border-radius: 6px;
-    background-color: #f5f6f7;
+    background-color: var(--cor-fundo);
 }
+
 #diagnostico-texto {
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: bold;
+    margin: 0;
 }
+
 #diagnostico-confianca {
-    font-size: 1.2em;
-    color: #606770;
+    font-size: 1.1em;
+    color: var(--cor-texto-secundario);
     margin-top: 5px;
 }
-.status-anormal { color: #d9534f; }
-.status-normal { color: #5cb85c; }
+
 .saliva-display {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
-#cor-detectada { font-size: 1.5em; font-weight: bold; }
+
+#cor-detectada {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
 #cor-swatch {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #ccc;
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--cor-borda);
     border-radius: 50%;
     background-color: #fff;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
 }
+
+.status-normal { color: var(--cor-status-positivo); }
+.status-anormal { color: var(--cor-status-negativo); }
+
+/* --- TABELAS --- */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
+
 th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #dddfe2;
+    border-bottom: 1px solid var(--cor-borda);
 }
+
 th {
     background-color: #f5f6f7;
     font-weight: 600;
+    color: var(--cor-texto-secundario);
+}
+
+/* --- LAYOUT RESPONSIVO PARA CELULARES --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    main {
+        padding: 15px;
+    }
+
+    .card {
+        min-width: 100%;
+    }
 }
