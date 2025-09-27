@@ -7,7 +7,7 @@ from sklearn.pipeline import Pipeline
 import joblib
 
 def main():
-    caminho_csv = "fake_neuro_dataset.csv"
+    caminho_csv = "fake_neuro_dataset_rgb_freq_501.csv"
     target_col = "label"
 
     df = pd.read_csv(caminho_csv)
